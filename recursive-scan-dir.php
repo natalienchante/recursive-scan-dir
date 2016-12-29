@@ -13,7 +13,7 @@ function showDirectoryContents($folder, $indent, $break)
     }
 }
 
-if ($php_sapi_name()=='cli') {
+if (php_sapi_name()=='cli') {
     showDirectoryContents('.', '', "\n");
 }
 else {
