@@ -1,5 +1,7 @@
 <?php
-function showDirectoryContents($folder, $indent, $break)
+public const GRAFIC_TREE_CHILD = '___';
+
+public function showDirectoryContents($folder, $indent, $break)
 {
     $items = scandir($folder);
     foreach ($items as $item) {
@@ -8,7 +10,7 @@ function showDirectoryContents($folder, $indent, $break)
         echo $indent.$item.$break;
         $path = $folder.DIRECTORY_SEPARATOR.$item;
         if (is_dir($path) && is_readable($path) && !is_link($item)) {
-            showDirectoryContents($path, str_replace('___', '   ', $indent).'|___', $break);
+            showDirectoryContents($path, str_replace(GRAFIC_TREE_CHILD, '   ', $indent).'|'.GRAFIC_TREE_CHILD, $break);
         }
     }
 }
