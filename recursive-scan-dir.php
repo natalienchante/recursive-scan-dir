@@ -1,5 +1,5 @@
 <?php
-public const GRAFIC_TREE_CHILD = '___';
+public const GRAFIC_TREE_CHILD_SEPARATOR = '___';
 
 public function showDirectoryContents($folder, $indent, $break)
 {
@@ -10,7 +10,7 @@ public function showDirectoryContents($folder, $indent, $break)
         echo $indent.$item.$break;
         $path = $folder.DIRECTORY_SEPARATOR.$item;
         if (is_dir($path) && is_readable($path) && !is_link($item)) {
-            showDirectoryContents($path, str_replace(GRAFIC_TREE_CHILD, '   ', $indent).'|'.GRAFIC_TREE_CHILD, $break);
+            showDirectoryContents($path, str_replace(GRAFIC_TREE_CHILD_SEPARATOR, '   ', $indent).'|'.GRAFIC_TREE_CHILD_SEPARATOR, $break);
         }
     }
 }
