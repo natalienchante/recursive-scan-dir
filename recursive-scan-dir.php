@@ -3,8 +3,8 @@ function showDirectoryContents($folder, $indent, $break)
 {
     $items = scandir($folder);
     foreach ($items as $item) {
-        if ($item == '.' || $item == '..') continue;
-
+        if ($item == '.' || $item == '..') 
+            continue;
         echo $indent.$item.$break;
         $path = $folder.DIRECTORY_SEPARATOR.$item;
         if (is_dir($path) && is_readable($path) && !is_link($item)) {
